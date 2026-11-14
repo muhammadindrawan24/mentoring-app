@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy:pages": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy-pages.ps1"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
