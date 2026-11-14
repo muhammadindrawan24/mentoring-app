@@ -60,9 +60,11 @@ src/
   types/               # tipe data
 ```
 
-## Deploy ke GitHub Pages + Domain Sendiri
+## Deploy ke GitHub Pages + Subdomain
 
 Aplikasi disiapkan untuk static export (`output: "export"`). Hasil build ada di folder `out/`, lalu di-deploy ke branch `gh-pages`.
+
+Domain utama `adiindwn.my.id` dipakai untuk portfolio. Aplikasi mentoring memakai subdomain `mentoring.adiindwn.my.id`.
 
 1. Build dan deploy:
 
@@ -73,20 +75,16 @@ Aplikasi disiapkan untuk static export (`output: "export"`). Hasil build ada di 
 
 2. Di repo GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
 3. Pilih branch **`gh-pages`** dan folder **`/ (root)`**, lalu simpan.
-4. Isi **Custom domain** dengan `adiindwn.my.id` lalu simpan.
-5. Di pengaturan DNS domain (`adiindwn.my.id`), tambahkan record berikut:
+4. Isi **Custom domain** dengan `mentoring.adiindwn.my.id` lalu simpan.
+5. Di pengaturan DNS domain, tambahkan record berikut:
 
    | Type | Name | Value |
    |---|---|---|
-   | A | @ | 185.199.108.153 |
-   | A | @ | 185.199.109.153 |
-   | A | @ | 185.199.110.153 |
-   | A | @ | 185.199.111.153 |
-   | CNAME | www | muhammadindrawan24.github.io |
+   | CNAME | mentoring | muhammadindrawan24.github.io |
 
 6. Tunggu propagasi DNS, lalu aktifkan **Enforce HTTPS**.
 
-File `public/CNAME` sudah berisi `adiindwn.my.id` dan `public/.nojekyll` mencegah pemrosesan Jekyll. Setiap ada perubahan, jalankan `npm run build` lalu `npm run deploy:pages` lagi.
+File `public/CNAME` sudah berisi `mentoring.adiindwn.my.id` dan `public/.nojekyll` mencegah pemrosesan Jekyll. Setiap ada perubahan, jalankan `npm run build` lalu `npm run deploy:pages` lagi.
 
 > Akses lewat URL project (`muhammadindrawan24.github.io/mentoring-app/`) belum tentu berjalan karena aplikasi di-build untuk root domain. Gunakan domain kustom atau sesuaikan `basePath` bila ingin memakai URL project.
 
